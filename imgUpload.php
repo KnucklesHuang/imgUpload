@@ -9,7 +9,7 @@
 	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
 }
 
-#upload-result{
+#uploadResult{
 	width: 500px; height: 100px;
 }
 body{ background-color: white;}
@@ -31,7 +31,7 @@ body{ background-color: white;}
 <script type="text/javascript">
 $(function(){
 	//用來顯示上傳結果的 textarea
-	var uploadResult = document.getElementById('upload-result');
+	var uploadResult = document.getElementById('uploadResult');
 	//使用單鍵上傳 jQuery plugin
 	$('.uploadBtn').imgUpload({
 		action: 'imgur_upload_base64.php', //接收上傳圖片的網頁，要回傳JSON檔
