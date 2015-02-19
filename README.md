@@ -12,26 +12,26 @@ DEMO page: http://knuckles.disp.cc/github/imgUpload/imgUpload.php
 
 先在 HTML 建立一個按鈕，以及用來顯示上傳結果的 textarea
 
-<style type="text/css">
-.uploadBtn{
-	display: inline-block; width:80px; height: 26px; cursor: pointer;
-	background-color: red; color: black; font-size: 16px;
-	border: 1px solid black; border-color: rgba(0,0,0,0.25);
-	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
-}
-#upload-result{
-	width: 500px; height: 100px;
-}
-</style>
-
-<div class="uploadBtn">上傳圖片</div>
-<textarea id="upload-result"></textarea>
+	<style type="text/css">
+	.uploadBtn{
+		display: inline-block; width:80px; height: 26px; cursor: pointer;
+		background-color: red; color: black; font-size: 16px;
+		border: 1px solid black; border-color: rgba(0,0,0,0.25);
+		-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+	}
+	#upload-result{
+		width: 500px; height: 100px;
+	}
+	</style>
+	
+	<div class="uploadBtn">上傳圖片</div>
+	<textarea id="upload-result"></textarea>
 
 
 
 載入 jQuery 與 plugin
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script src="jquery.imgUpload.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="jquery.imgUpload.js"></script>
 
 用 JavaScript 將上傳圖片按鈕加上 imgUpload
 
