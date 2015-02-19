@@ -35,34 +35,34 @@ DEMO page: http://knuckles.disp.cc/github/imgUpload/imgUpload.php
 
 用 JavaScript 將上傳圖片按鈕加上 imgUpload
 
-<script type="text/javascript">
-$(function(){
-	//用來顯示上傳結果的 textarea
-	var uploadResult = document.getElementById('upload-result');
-	//使用單鍵上傳 jQuery plugin
-	$('.uploadBtn').imgUpload({
-		action: 'imgur_upload_base64.php', //接收上傳圖片的網頁，要回傳JSON檔
-		multiple: true, //允許選取多張圖片
-		maxWidth: 1000, //寬度限制最大1000px
-		maxHeight: 0,   //高度不限制
-		//選取圖片後要做的事
-		onSubmit: function(id){ 
-			//在 textarea 插入一個上傳中的字串，上傳成功後再換成網址
-			//若一次上傳多張圖，可用 id 來分別不同的圖
-			var anchor_str = "[img "+id+" uploading...]\n";
-			uploadResult.value += anchor_str;
-		},
-		//上傳成功後要做的事
-		onComplete: function(responseJSON,id){ 
-			// resapnseJSON 為 action 網頁回傳的 JSON 檔
-			var data = responseJSON.data;
-			if(!responseJSON.success){ alert(data.error); }
-			//將 textarea 裡，上傳中的字串改成圖片網址
-			//若一次上傳多張圖，可用 id 來分別不同的圖
-			var anchor_str = "[img "+id+" uploading...]\n";
-			var bbcode = '[img='+data.width+'x'+data.height+']'+data.link+"[/img]\n";
-			uploadResult.value = uploadResult.value.replace(anchor_str,bbcode);
-		}
-	});	
-});
-</script>
+	<script type="text/javascript">
+	$(function(){
+		//用來顯示上傳結果的 textarea
+		var uploadResult = document.getElementById('upload-result');
+		//使用單鍵上傳 jQuery plugin
+		$('.uploadBtn').imgUpload({
+			action: 'imgur_upload_base64.php', //接收上傳圖片的網頁，要回傳JSON檔
+			multiple: true, //允許選取多張圖片
+			maxWidth: 1000, //寬度限制最大1000px
+			maxHeight: 0,   //高度不限制
+			//選取圖片後要做的事
+			onSubmit: function(id){ 
+				//在 textarea 插入一個上傳中的字串，上傳成功後再換成網址
+				//若一次上傳多張圖，可用 id 來分別不同的圖
+				var anchor_str = "[img "+id+" uploading...]\n";
+				uploadResult.value += anchor_str;
+			},
+			//上傳成功後要做的事
+			onComplete: function(responseJSON,id){ 
+				// resapnseJSON 為 action 網頁回傳的 JSON 檔
+				var data = responseJSON.data;
+				if(!responseJSON.success){ alert(data.error); }
+				//將 textarea 裡，上傳中的字串改成圖片網址
+				//若一次上傳多張圖，可用 id 來分別不同的圖
+				var anchor_str = "[img "+id+" uploading...]\n";
+				var bbcode = '[img='+data.width+'x'+data.height+']'+data.link+"[/img]\n";
+				uploadResult.value = uploadResult.value.replace(anchor_str,bbcode);
+			}
+		});	
+	});
+	</script>
