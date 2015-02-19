@@ -30,8 +30,6 @@ DEMO page: http://knuckles.disp.cc/github/imgUpload/imgUpload.php
 
 
 載入 jQuery 與 plugin
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="jquery.imgUpload.js"></script>
 
 用 JavaScript 將上傳圖片按鈕加上 imgUpload
 
