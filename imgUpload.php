@@ -23,7 +23,7 @@ body{ background-color: white;}
 <br>
 
 上傳圖片的網址:<br>	
-<textarea id="upload-result"></textarea>
+<textarea id="uploadResult"></textarea>
 <br>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>

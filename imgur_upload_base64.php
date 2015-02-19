@@ -17,7 +17,11 @@ echo $imgur_result;
 
 
 function imgur_upload($image,$title='') {
-	$url = 'https://imgur-apiv3.p.mashape.com/3/image/';
+	if(MASHAPE_KEY==''){
+		$url = 'https://api.imgur.com/';
+	}else{
+		$url = 'https://imgur-apiv3.p.mashape.com/3/image/';
+	}
 
 	$http_header_array = [
 			"X-Mashape-Key: ".MASHAPE_KEY,
