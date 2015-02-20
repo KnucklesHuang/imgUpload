@@ -16,7 +16,7 @@ $(function(){
 		action: 'imgur_upload_base64.php', //接收上傳圖片的網頁，要回傳JSON檔
 		maxWidth: 1000, //寬度限制最大1000px
 		maxHeight: 0,   //高度不限制
-		//上傳圖片前在textarea插入的字串，可用id來區別不同次貼上的圖
+		//上傳圖片前在textarea插入字串，可用id來區別不同次貼上的圖
 		onSubmit: function(id){ 
 			var anchorStr = "[img "+id+" uploading...]\n";
 			document.execCommand("insertText", false, anchorStr);
