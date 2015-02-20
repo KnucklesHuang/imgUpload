@@ -121,7 +121,7 @@ $(function(){
 				pasteTarget.selectionStart = strStart;
 				pasteTarget.selectionEnd = strEnd;
 				document.execCommand("insertText", false, replaceStr);
-				if(selStart>strEnd){
+				if(selStart>=strEnd){
 					var offset = replaceStr.length - anchorStr.length;
 					selStart += offset;
 					selEnd += offset;
