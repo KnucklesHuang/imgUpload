@@ -42,13 +42,13 @@
 					console.log('file '+(i+1)+' is not an image');
 					continue;
 				}
-				imgFileUpload(file, options);
+				imgUpload(file, options);
 			}
 		});
 		return this;
 	};
 	
-	function imgFileUpload(file, options){
+	function imgUpload(file, options){
 		$.extend({ //options 預設值
 			action: '', //上傳圖片的網址
 			maxWidth: 1000, //寬度預設最大1000px
