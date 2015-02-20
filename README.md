@@ -1,11 +1,11 @@
 # imgUpload
-單鍵縮圖上傳 jQuery Plugin
+單鍵縮圖上傳的 jQuery Plugin
 
 單鍵上傳圖片，上傳前會將圖縮小為限制的大小
 
 說明可參考: http://disp.cc/b/11-8uGt
 
-DEMO page: http://knuckles.disp.cc/github/imgUpload/imgUpload.php
+DEMO page: http://knuckles.disp.cc/github/imgUpload/imgUpload.php?ModPagespeed=off
 
 imgur API 的說明可參考: http://disp.cc/b/11-8qWb
 
@@ -35,7 +35,7 @@ imgur API 的說明可參考: http://disp.cc/b/11-8qWb
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="jquery.imgUpload.js"></script>
 ```
-用 JavaScript 將上傳圖片按鈕加上 imgUpload
+將上傳圖片按鈕加上 imgUpload
 ```js
 <script type="text/javascript">
 $(function(){
@@ -66,6 +66,45 @@ $(function(){
 			uploadResult.value = uploadResult.value.replace(anchor_str,bbcode);
 		}
 	});	
+});
+</script>
+```
+
+# pasteUpload
+用剪貼簿上傳的 jQuery Plugin
+
+DEMO page: http://knuckles.disp.cc/github/imgUpload/pasteUpload.php?ModPagespeed=off
+
+先建立一個 textarea
+```html
+<textarea style="width: 500px; height: 200px;" id="pasteTarget">
+複製一張圖片(例如按PrintScreen)後，在這邊貼上
+</textarea>
+```
+
+載入 jQuery 與 plugin
+```js
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="jquery.pasteUpload.js"></script>
+```
+
+將 textarea 加上 pasteUpload
+```js
+<script type='text/javascript'>
+$(function(){
+	$('#pasteTarget').pasteUpload({
+		action: 'imgur_upload_base64.php', //接收上傳圖片的網頁，要回傳JSON檔
+		maxWidth: 1000, //寬度限制最大1000px
+		maxHeight: 0,   //高度不限制
+		//上傳圖片前在textarea插入的字串，可用id來區別不同次貼上的圖
+		insertStr: function(id){ 
+			return '[img '+id+' uploading...]';
+		},
+		//圖片上傳成功後，將插入的字串換成含有圖片網址的字串
+		replaceStr: function(width,height,link){
+			return '[img='+width+'x'+height+']'+link+'[/img]';
+		}
+	});
 });
 </script>
 ```
