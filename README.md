@@ -5,7 +5,7 @@
 
 說明可參考: http://disp.cc/b/11-8uGt
 
-DEMO page: http://knuckles.disp.cc/github/imgUpload/imgUpload.php
+DEMO page: http://knuckles.disp.cc/github/imgUpload/imgUpload.html
 
 imgur API 的說明可參考: http://disp.cc/b/11-8qWb
 
@@ -75,7 +75,7 @@ $(function(){
 
 瀏覽器只有 chrome 支援
 
-DEMO page: http://knuckles.disp.cc/github/imgUpload/pasteUpload.php
+DEMO page: http://knuckles.disp.cc/github/imgUpload/pasteUpload.html
 
 先建立一個 textarea
 ```html
