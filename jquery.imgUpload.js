@@ -49,13 +49,6 @@
 	};
 	
 	function imgUpload(file, options){
-		$.extend({ //options 預設值
-			action: '', //上傳圖片的網址
-			maxWidth: 1000, //寬度預設最大1000px
-			maxHeight:0,    //高度預設無限制
-			onSubmit: function(){}, //選好檔案時要做的事
-			onComplete: function(){}//上傳完成後要做的事
-		}, options);
 		var type = file.type;
 		var src = window.URL.createObjectURL(file);
 		//隨機產生一個id，用來辨別不同的上傳檔案
