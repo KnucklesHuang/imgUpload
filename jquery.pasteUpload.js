@@ -73,7 +73,6 @@
 			$.post(options.action, {base64:base64}, function(responseText){
 				if(!responseText.match(/^[\{\[]/)){ alert(responseText); return; }
 				var responseJSON = JSON.parse(responseText);
-//				options.onComplete(responseJSON,id);
 				var replaceStr = options.replaceStr(responseJSON);
 				replaceText(element, anchorStr, replaceStr);
 			},'text');
