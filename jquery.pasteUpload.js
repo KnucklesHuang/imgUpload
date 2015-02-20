@@ -8,35 +8,32 @@
 			action: 'imgur_upload_base64.php',
 			maxWidth: 1000, //寬度預設限制最大1000px
 			maxHeight: 0,   //高度預設無限制
-			insertStr: function(){},
-			replaceStr: function(){}
+			onSubmit: function(){},
+			onComplete: function(){}
 		}, options);
 		
 		this.on('paste',function(){
-			pasteUpload(this, options);
+			var e = window.event;
+			var file = null;
+			for(var i=0; i<e.clipboardData.items.length; i++) {
+				var item = e.clipboardData.items[i];
+				if (item.type.indexOf("image") !== -1) {
+					file = item.getAsFile();
+					break;
+				}
+			}
+			if(file===null){ return; }
+			imgUpload(file,options);
 		});
 		return this;
 	};
 	
-	function pasteUpload(element, options){
-		var e = window.event;
-		var file = null;
-		for(var i=0; i<e.clipboardData.items.length; i++) {
-			var item = e.clipboardData.items[i];
-			if (item.type.indexOf("image") !== -1) {
-				file = item.getAsFile();
-				break;
-			}
-		}
-		if(file===null){ return; }
-		
+	function imgUpload(file,options){
 		var type = file.type;
 		var src = window.URL.createObjectURL(file);
 		//隨機產生一個id，用來辨別不同的上傳檔案
 		var id = Math.random().toString(36).substring(3,7);
-
-		var anchorStr = options.insertStr(id);
-		insertText(element, anchorStr);
+		options.onSubmit(id);
 
 		var img = document.createElement("img");
 		img.src = src;
@@ -73,35 +70,9 @@
 			$.post(options.action, {base64:base64}, function(responseText){
 				if(!responseText.match(/^[\{\[]/)){ alert(responseText); return; }
 				var responseJSON = JSON.parse(responseText);
-				var replaceStr = options.replaceStr(responseJSON);
-				replaceText(element, anchorStr, replaceStr);
+				options.onComplete(responseJSON,id);
 			},'text');
 		};		
-	}
-	
-	function insertText(element, string){
-		element.focus();
-		document.execCommand("insertText", false, string);
-	}
-	
-	function replaceText(element, searchStr, replaceStr){
-		var selStart = element.selectionStart;
-		var selEnd = element.selectionEnd;
-		var textValue = element.value;
-		var strStart = textValue.indexOf(searchStr);
-		if(strStart!==-1){
-			var strEnd = strStart+searchStr.length;
-			element.selectionStart = strStart;
-			element.selectionEnd = strEnd;
-			document.execCommand("insertText", false, replaceStr);
-			if(selStart>strEnd){
-				var offset = replaceStr.length - searchStr.length;
-				selStart += offset;
-				selEnd += offset;
-			}
-			element.selectionStart = selStart;
-			element.selectionEnd = selEnd;
-		}
 	}
 	
 })(jQuery);
