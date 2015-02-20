@@ -19,9 +19,10 @@ $(function(){
 		insertStr: function(id){ 
 			return "[img "+id+" uploading...]\n";
 		},
-		//圖片上傳成功後，將插入的字串換成含有圖片網址的字串
-		replaceStr: function(width,height,link){
-			return "[img="+width+"x"+height+"]"+link+"[/img]\n";
+		//圖片上傳成功後，利用回傳的JSON將插入的字串換成含有圖片網址的字串
+		replaceStr: function(responseJSON){
+			var data = responseJSON.data;
+			return "[img="+data.width+"x"+data.height+"]"+data.link+"[/img]\n";
 		}
 	});
 });

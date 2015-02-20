@@ -74,8 +74,7 @@
 				if(!responseText.match(/^[\{\[]/)){ alert(responseText); return; }
 				var responseJSON = JSON.parse(responseText);
 //				options.onComplete(responseJSON,id);
-				var data = responseJSON.data;
-				var replaceStr = options.replaceStr(data.width,data.height,data.link);
+				var replaceStr = options.replaceStr(responseJSON);
 				replaceText(element, anchorStr, replaceStr);
 			},'text');
 		};		
