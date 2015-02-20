@@ -94,6 +94,8 @@ DEMO page: http://knuckles.disp.cc/github/imgUpload/pasteUpload.html
 ```js
 <script type='text/javascript'>
 $(function(){
+	var pasteTarget = document.getElementById('pasteTarget');
+
 	$('#pasteTarget').pasteUpload({
 		action: 'imgur_upload_base64.php', //接收上傳圖片的網頁，要回傳JSON檔
 		maxWidth: 1000, //寬度限制最大1000px
