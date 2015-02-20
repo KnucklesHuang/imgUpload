@@ -49,7 +49,7 @@ $(function(){
 		onComplete: function(responseJSON,id){ 
 			// resapnseJSON 為 action 網頁回傳的 JSON 檔
 			var data = responseJSON.data;
-			if(!responseJSON.success){ alert(data.error); }
+			if(!responseJSON.success){ alert(data.error); return; }
 			//將 textarea 裡，上傳中的字串改成圖片網址
 			//若一次上傳多張圖，可用 id 來分別不同的圖
 			var anchor_str = "[img "+id+" uploading...]\n";
