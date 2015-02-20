@@ -73,6 +73,8 @@ $(function(){
 # pasteUpload
 用剪貼簿上傳的 jQuery Plugin
 
+瀏覽器只有 chrome 支援
+
 DEMO page: http://knuckles.disp.cc/github/imgUpload/pasteUpload.php
 
 先建立一個 textarea
