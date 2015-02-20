@@ -5,7 +5,7 @@
 
 說明可參考: http://disp.cc/b/11-8uGt
 
-DEMO page: http://knuckles.disp.cc/github/imgUpload/imgUpload.php?ModPagespeed=off
+DEMO page: http://knuckles.disp.cc/github/imgUpload/imgUpload.php
 
 imgur API 的說明可參考: http://disp.cc/b/11-8qWb
 
@@ -73,7 +73,7 @@ $(function(){
 # pasteUpload
 用剪貼簿上傳的 jQuery Plugin
 
-DEMO page: http://knuckles.disp.cc/github/imgUpload/pasteUpload.php?ModPagespeed=off
+DEMO page: http://knuckles.disp.cc/github/imgUpload/pasteUpload.php
 
 先建立一個 textarea
 ```html
