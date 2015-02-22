@@ -6,7 +6,7 @@
 	$.fn.pasteUpload = function(options) {
 		options = $.extend({ //options 預設值
 			action: 'imgur_upload_base64.php',
-			maxWidth: 1000, //寬度預設限制最大1000px
+			maxWidth: 1024, //寬度預設限制最大1024px
 			maxHeight: 0,   //高度預設無限制
 			onSubmit: function(){},
 			onComplete: function(){}

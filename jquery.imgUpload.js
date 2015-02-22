@@ -7,7 +7,7 @@
 		options = $.extend({ //options 預設值
 			action: 'imgur_upload_base64.php',
 			multiple: true, //預設允許選取多張圖片
-			maxWidth: 1000, //寬度預設限制最大1000px
+			maxWidth: 1024, //寬度預設限制最大1024px
 			maxHeight: 0,   //高度預設無限制
 			onSubmit: function(){},
 			onComplete: function(){}
