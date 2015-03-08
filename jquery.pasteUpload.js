@@ -12,8 +12,9 @@
 			onComplete: function(){}
 		}, options);
 		
-		this.on('paste',function(){
-			var e = window.event;
+		this.on('paste',function(e){
+//			var e = window.event;
+			e = e.originalEvent; //change jquery event to original event
 			var file = null;
 			for(var i=0; i<e.clipboardData.items.length; i++) {
 				var item = e.clipboardData.items[i];
