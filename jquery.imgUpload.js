@@ -14,6 +14,7 @@
 		}, options);
 		
 		var multiple = (options.multiple)? 'multiple' : '';
+		this.css({padding: 0, textAlign: 'left'});
 		var btnWidth = this.width(),
 			btnHeight = this.height();
 		var input = $(
@@ -27,8 +28,7 @@
 		).css({
 			padding: '3px', textAlign: 'center', verticalAlign: 'middle'
 		});
-		this.empty().css({padding: 0, textAlign: 'left'})
-			.append(input).append(innertext);
+		this.empty().append(input).append(innertext);
 		
 		input.on('click',function(){
 			this.value = null;
