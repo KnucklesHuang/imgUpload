@@ -65,8 +65,7 @@
 			//將canvas轉為圖片的base64編碼
 			var dataurl = canvas.toDataURL(type); 
 			//去掉 dataurl 開頭的 data:image/png;base64,
-			var regex = new RegExp('^data:'+type+';base64,');
-			var base64 = dataurl.replace(regex,'');
+			var base64 = dataurl.replace(/^data:image\/\w{3,4};base64,/, '');
 			//將圖片的base64編碼上傳至網站，將回傳的JSON傳至onComplete
 			$.post(options.action, {base64:base64}, function(responseText){
 				if(!responseText.match(/^[\{\[]/)){ alert(responseText); return; }
